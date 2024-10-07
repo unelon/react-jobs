@@ -1,33 +1,38 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import HomeCards from './components/HomeCards'
+import { Joblistings } from './components/Joblistings'
+import { Jobs } from './jobs'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const title = "Become a React Dev";
+  const subTitle = "Find the React job that fits your skills and needs";
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>React Jobs</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Navbar />
+    <Hero title={title} subtitle={subTitle}/>
+    <HomeCards />
+      <section className="bg-blue-50 px-4 py-10">
+        <div className="container-xl lg:container m-auto">
+          <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
+            Browse Jobs
+          </h2>
+          <Joblistings jobs={Jobs}/>
+        </div>
+      </section>
+
+      <section className="m-auto max-w-lg my-10 px-6">
+        <a
+          href="jobs.html"
+          className="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
+          >View All Jobs</a
+        >
+      </section>
     </>
   )
 }
