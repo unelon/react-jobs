@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState } from "react"
 
 export const Joblisting = ({ 
+    id,
     type = "type", 
     title = "title", 
     description = "decription", 
@@ -17,7 +17,7 @@ export const Joblisting = ({
                 <div className="text-gray-600 my-2">{type}</div>
                 <h3 className="text-xl font-bold">{title}</h3>
             </div>
-
+            <div className=" bg-indigo-50 rounded-lg text-sm py-1 mb-5">{company.name}</div>
             <div className="mb-5">
             {description}
             </div>
@@ -32,28 +32,11 @@ export const Joblisting = ({
                 {location}
                 </div>
                 <a
-                href="job.html"
+                href={`/job/${id}`}
                 className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm"
                 >
                 Read More
                 </a>
-            </div>
-            
-
-
-
-            <div className="relative group">
-                <div className="border bg-indigo-50 rounded-lg text-sm py-1">{company.name}</div>
-                <div className="absolute bg-white border rounded-lg p-4 bottom-5 shadow-md text-wrap break-all hidden group-hover:block text-sm" 
-                    style={{
-                    zIndex: 500, 
-                    maxWidth: "92%",
-                    }}>
-                    <p>{company.description}</p>
-                    <br />
-                    <p>{company.contactEmail}</p>
-                    <p>{company.contactPhone}</p>
-                </div>
             </div>
         </div>
     </div>

@@ -12,6 +12,8 @@ function App() {
   const title = "Become a React Dev";
   const subTitle = "Find the React job that fits your skills and needs";
 
+  const recentJobs = Jobs.slice(0,3)
+
   return (
     <>
     <Navbar />
@@ -22,7 +24,7 @@ function App() {
           <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
             Browse Jobs
           </h2>
-          <Joblistings jobs={Jobs}/>
+          <Joblistings jobs={recentJobs}/>
         </div>
       </section>
 

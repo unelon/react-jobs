@@ -14,6 +14,7 @@ export const Joblistings = ({ jobs }) => {
             title={job.title}
             description={job.description}
             company={job.company}
+            id={job.id}
         />
      ))}
     </div>
