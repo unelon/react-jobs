@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const Joblisting = ({ 
     id,
@@ -8,7 +8,15 @@ export const Joblisting = ({
     salary = "salary", 
     location = "location", 
     company 
-}) => {
+}) => { 
+
+    const [showFullDescription, setShowFullDescription] = useState(false);
+
+    let subDesription = description;
+
+    if (!showFullDescription) {
+        subDesription = subDesription.substring(0, 90) + "..."
+    }
 
   return (
         <div className="bg-white rounded-xl shadow-md relative">
@@ -17,12 +25,12 @@ export const Joblisting = ({
                 <div className="text-gray-600 my-2">{type}</div>
                 <h3 className="text-xl font-bold">{title}</h3>
             </div>
-            <div className=" bg-indigo-50 rounded-lg text-sm py-1 mb-5">{company.name}</div>
+            <div className="bg-indigo-50 rounded-lg text-sm py-1 mb-5 text-center">{company.name}</div>
             <div className="mb-5">
-            {description}
+            {subDesription}
             </div>
-
-            <h3 className="text-indigo-500 mb-2">{salary} / Year</h3>
+            <button className="text-sm text-indigo-500" onClick={() => {setShowFullDescription((prevState) => !prevState)}}>{showFullDescription ? "Less" : "More"}</button>
+            <h3 className="text-indigo-500 mb-2 mt-2">{salary} / Year</h3>
 
             <div className="border border-gray-100 mb-5"></div>
 
